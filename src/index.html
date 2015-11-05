@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>联动装置</title>
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/linkage.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3" id="example">
+			<input type="text" class="form-control j-input" id="input" placeholder="请选择一个城市" readonly>
+			<div class="linkage-wrap">
+				<div class="linkage  j-linkage">
+					<div class="linkage-tab">
+						<ul class="nav nav-tabs">
+		    				<li class="active">
+		    					<a class="j-value-prov" href="#prov" data-toggle="tab"><em class="value j-value"></em><i></i></a>
+		    				</li>
+		    				<li class="">
+		    					<a class="j-value-city" href="#city" data-toggle="tab"><em class="value j-value"></em><i></i></a>
+		    				</li>
+		    			</ul>
+					</div>
+					<div class="linkage-content tab-content">
+						<div class="tab-pane active j-prov" id="prov"></div>
+		    			<div class="tab-pane j-city" id="city"></div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+<script src="../lib/js/jquery-1.11.3.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../lib/js/city.min.js"></script>
+<script src="../lib/js/linkage.js"></script>
+<script>
+	$("#example").citySelect({
+	      url:citylist
+	  });
+</script>
+</body>
+</html>
