@@ -92,6 +92,7 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
+				// 'dist/js/indexf.min.js': ['src/js/indexf.js']
 				'dist/js/indexf.min.js': ['src/js/indexf.js']
 				}
 			}
