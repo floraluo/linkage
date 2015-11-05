@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3" id="example">
-			<input type="text" class="form-control j-input" id="input" placeholder="请选择一个城市" readonly>
+			<input type="text" class="form-control linkage-input j-input" id="input" placeholder="请选择一个城市" readonly>
 			<div class="linkage-wrap">
 				<div class="linkage  j-linkage">
 					<div class="linkage-tab">
@@ -39,9 +39,12 @@
 <script src="../lib/js/city.min.js"></script>
 <script src="../lib/js/linkage.js"></script>
 <script>
-	$("#example").citySelect({
-	      url:citylist
-	  });
+	// $("#example").citySelect({
+	// 	url:citylist
+	// });
+	$("#example").linkage({
+		url: citylist
+	})
 </script>
 </body>
 </html>
