@@ -1,0 +1,29 @@
+@mixin respond-to($media)
+	@if $media == extra-small
+		@media only screen and (max-width: $screen-xs-max)
+			@content
+	@else if $media == small
+		@media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+			@content
+	@else if $media == medium
+		@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max)
+			@content
+	@else if $media == large
+		@media only screen and (min-width: $screen-lg-min)
+			@content
+
+@mixin respond-to-min($media)
+	@if $media == small
+		@media only screen and (min-width: $screen-sm-min)
+			@content
+	@else if $media == medium
+		@media only screen and (min-width: $screen-md-min)
+			@content
+
+@mixin respond-to-max($media)
+	@if $media == small
+		@media only screen and (max-width: $screen-sm-max)
+			@content
+	@else if $media == medium
+		@media only screen and (max-width: $screen-md-max)
+			@content

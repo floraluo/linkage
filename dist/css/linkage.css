@@ -1,11 +1,9 @@
-/* line 55, ../sass/index.sass */
 .linkage-wrap {
   position: absolute;
   z-index: 1071;
   padding-right: 30px;
   width: 100%;
 }
-/* line 60, ../sass/index.sass */
 .linkage-wrap > .linkage {
   margin-top: -1px;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -15,49 +13,39 @@
   background-color: #fff;
   display: none;
 }
-/* line 68, ../sass/index.sass */
 .linkage-wrap > .linkage.active {
   display: block;
 }
-/* line 72, ../sass/index.sass */
 .linkage-wrap > .linkage .linkage-tab li > a {
   color: #555;
 }
-/* line 74, ../sass/index.sass */
 .linkage-wrap > .linkage .linkage-tab li > a > em {
   font-style: normal;
   font-weight: bold;
   font-size: 14;
 }
-/* line 79, ../sass/index.sass */
 .linkage-wrap > .linkage .linkage-tab li:first-child > a {
   border-left-color: transparent;
 }
-/* line 82, ../sass/index.sass */
 .linkage-wrap > .linkage .linkage-tab li.active a {
   color: #ff7300;
 }
-/* line 84, ../sass/index.sass */
 .linkage-wrap > .linkage .area-list {
   padding: 10px 0.5em 0;
   list-style: none;
 }
-/* line 14, ../sass/mixins/_clearfix.sass */
 .linkage-wrap > .linkage .area-list:before, .linkage-wrap > .linkage .area-list:after {
   content: " ";
   display: table;
 }
-/* line 18, ../sass/mixins/_clearfix.sass */
 .linkage-wrap > .linkage .area-list:after {
   clear: both;
 }
-/* line 88, ../sass/index.sass */
 .linkage-wrap > .linkage .area-list li {
   padding: 4px 8px;
   float: left;
   border-radius: 4px;
 }
-/* line 92, ../sass/index.sass */
 .linkage-wrap > .linkage .area-list li:hover {
   cursor: pointer;
   color: #fff;

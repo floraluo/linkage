@@ -1,132 +1,104 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-	    compass: {
-	    	dev: {
-	    		options: {
-	    			relativeAssets: true,
-	    			sassDir: 'src/sass',
-	    			cssDir: 'src/build',
-	    			imagesDir: 'src/images'
-	    		}
-	    	},
-	    	prod: {
-	    		options: {
-	    			relativeAssets: true,
-	    			sassDir: 'src/sass',
-	    			cssDir: 'src/build',
-	    			imagesDir: 'src/images',
-	    			environment: 'production'
-	    		}
-	    	}
-	    },
-	    cssmin: {
-	    	minify: {
-	    		files: [{
-	    			expand: true,
-	    			cwd: 'src/css/',
-	    			// src: ['*.css', '!*.min.css','!stock.css','!common.css','!main.css','!page.css'],
-	    			src: ['*.css'],
-	    			dest: 'dist/css',
-	    			ext: '.min.css'
-	    		}]
-	    	}
-	    },
-	    autoprefixer: {
-	    	options: {
-			  	browsers: ['last 5 versions', 'ie 8' , 'ie 9']
+		sass: {
+			dist: {
+				options: {                       // Target options
+	        style: 'expanded'
+	      },
+				files: [{
+					expand: true,
+					cwd: 'src/sass',
+					src: ['*.sass'],
+					dest: 'dist/css',
+					ext: '.css'
+				}]
+			}
+		},
+    autoprefixer: {
+    	options: {
+		  	browsers: ['last 5 versions', 'ie 8' , 'ie 9']
 			},
-		    dist: {
-		      	// Target-specific file lists and/or options go here. 
-		      	// files : { 
-		      	// 	['src/css/indexf.css': 'src/build/indexf.css' ],
-		      	// 	['src/css/index.css': 'src/build/index.css']
-		      	// }
-		      	files: [{
-                    expand: true,
-                    cwd: 'src/build/',
-                    src: ['*.css'],
-                    dest: 'src/css/'
-                }]
-		    }
-	  	},
-	    htmlmin: {                                     // Task
-			dist: {                                      // Target
-				options: {                                 // Target options
+	    dist: {
+				files: [{
+					expand: true,
+					cwd: 'dist/css/',
+					src: ['*.css'],
+					dest: 'dist/css/'
+				}]
+	    }
+  	},
+    htmlmin: {
+			dist: {
+				options: {
 					removeComments: true,
 					collapseWhitespace: true
 				},
-				files: {                             // Dictionary of files
-					'dist/index.html': 'src/index.html',
-					'dist/fixed.html': 'src/fixed.html'
-				}
-				// files: [{
-				// 	src: ['settled.html'],
-				// 	dest: ['settled.html']
-				// }]
+				files: [{
+					// expand: true,
+					cwd: 'src/**/',
+					src: ['*.html'],
+					dest: 'dist/',
+					ext: '.html'
+				}]
 			},
-			dev: {                                       // Another target
-				files: {
-					// 'dist/index.html': 'src/index.html',
-					'dist/index.html': 'src/index.html',
-					'dist/fixed.html': 'src/fixed.html'
-				}
+			dev: {
+				files: [{
+					expand: true,
+					cwd: 'src/',
+					src: ['*.html'],
+					dest: 'dist/',
+					ext: '.html'
+				}]
 			}
 		},
-	    imagemin: {
-	    	dist: {
-                options: {
-                    optimizationLevel: 5 
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'src/images/',
-                    src: ['*.{png,jpg,gif}'],
-                    dest: 'dist/images/'
-                }]
-            }
-	    },
-	    uglify: {
+    imagemin: {
+    	dist: {
+        options: {
+            optimizationLevel: 5 
+        },
+        files: [{
+            expand: true,
+            cwd: 'src/images/',
+            src: ['*.{png,jpg,gif}'],
+            dest: 'dist/images/'
+        }]
+      }
+    },
+    uglify: {
 			options: {
 				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */'
 			},
-			build: {
-				files: {
-				// 'dist/js/indexf.min.js': ['src/js/indexf.js']
-				'dist/js/indexf.min.js': ['src/js/indexf.js']
-				}
+			dev: {
+				files: [{
+					expand: true,
+					cwd: 'src/js/',
+					src: ['*.js'],
+					dest: 'dist/js/',
+					ext: '.js'
+				}]
 			}
 		},
 		watch: {
-	      compass: {
-	      	files: ['src/**/*.{scss,sass}'],
-	      	tasks: ['compass:dev']
-	      },
-	      autoprefixer: {
-	      	files: ['src/build/*.css'],
-	      	tasks: ['autoprefixer']
-	      },
-	      css: {
-	      	files: ['src/css/*.css'],
-	      	tasks: ['cssmin']
-	      },
-	      html: {
-	      	files: ['src/*.html'],
-	      	tasks: ['htmlmin']
-	      },
-	      js: {
-	      	files: ['src/js/*.js'],
-	      	tasks: ['uglify']
-	      }
-	    }
+      sass: {
+      	files: ['src/sass/**/*.{scss,sass}'],
+      	tasks: ['sass']
+      },
+      autoprefixer: {
+      	files: ['src/build/*.css'],
+      	tasks: ['autoprefixer']
+      },
+      html: {
+      	files: ['src/**/*.html'],
+      	tasks: ['htmlmin:dev']
+      }
+    }
 	});
 	grunt.loadNpmTasks('grunt-autoprefixer');
-	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build', ['compass' , 'autoprefixer' , 'cssmin' , 'htmlmin:dist' , 'uglify' , 'imagemin']);
+	grunt.registerTask('build', ['sass' , 'autoprefixer' , 'htmlmin:dev']);
 }

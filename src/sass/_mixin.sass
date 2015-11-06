@@ -1,0 +1,32 @@
+@import "variable"
+// Mixins
+// --------------------------------------------------
+
+// Layout
+@import "mixins/clearfix"
+@import "mixins/center-block"
+// @import "mixins/inline-block"
+
+
+@import "mixins/list-style"
+
+// Utilities
+@import "mixins/opacity"
+@import "mixins/text-overflow"
+@import "mixins/responsive"
+@import "mixins/padding"
+@import "mixins/margin"
+@import "mixins/font-size"
+
+
+%icon
+	display: inline-block
+	position: relative
+@mixin transparent($color, $alpha)
+	$rgba: rgba($color, $alpha)
+	$ie-hex-str: ie-hex-str($rgba)
+	background-color: transparent
+	background-color: $rgba
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str})
+	zoom: 1
+
