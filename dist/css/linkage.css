@@ -16,6 +16,9 @@
 .linkage-wrap > .linkage.active {
   display: block;
 }
+.linkage-wrap > .linkage .linkage-tab.none {
+  display: none;
+}
 .linkage-wrap > .linkage .linkage-tab li > a {
   color: #555;
 }
@@ -51,3 +54,5 @@
   color: #fff;
   background-color: #ff7300;
 }
+
+/*# sourceMappingURL=linkage.css.map */
