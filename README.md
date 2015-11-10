@@ -3,6 +3,7 @@
 这个省市联动是基于`bootstrap3`而写，依赖[标签页插件](http://v3.bootcss.com/javascript/#tabs)
 
 省市：
+
 ![preview](https://raw.githubusercontent.com/floraluo/linkage/master/lib/images/preview.png)
 
 ##Options
@@ -162,6 +163,7 @@ Example:
 ##Example
 ###插件调用
 
+####多个同时调用
 有几个input框为同样的数据源可以使用class调用
 ```
 $(".example").linkage({
@@ -170,7 +172,7 @@ $(".example").linkage({
 ```
 
 
-设置默认值
+####设置默认值
 ```
 $("#example").linkage({
  url: citylist,
@@ -179,13 +181,18 @@ $("#example").linkage({
 })
 ```
 
-取消tab
+
+####取消tab
 ```
 $("#example").linkage({
  url: citylist,
  tab: false
 })
 ```
+![取消tab预览](https://github.com/floraluo/linkage/blob/master/lib/images/notab.png)
+
+
+
 ###选择查询省、省市、省市县
 
 ####只查询省
