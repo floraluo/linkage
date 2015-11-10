@@ -11,68 +11,24 @@
 <body>
 <div class="container">
 	<div class="row">
-		<div class="col-md-3 example" id="example1">
-			<h2>选择省</h2>
-			<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
-			<div class="linkage-wrap">
-				<div class="linkage j-linkage">
-					<div class="linkage-tab">
-						<ul class="nav nav-tabs">
-							<li class="active">
-								<a href="#prov1" data-toggle="tab"><em class="value"></em><i></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="linkage-content tab-content">
-						<div class="tab-pane active" id="prov1"></div>
-					</div>
-				</div>
-			</div>			
-		</div>
-		<div class="col-md-3 example" id="example2">
+		<div class="col-md-3" id="example">
 			<h2>选择省市</h2>
-			<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
+			<input type="text" class="form-control linkage-input j-input" id="input" placeholder="请选择一个城市" readonly="readonly">
 			<div class="linkage-wrap">
 				<div class="linkage j-linkage">
 					<div class="linkage-tab">
 						<ul class="nav nav-tabs">
-							<li class="active">
-								<a href="#prov2" data-toggle="tab"><em class="value"></em><i></i></a>
-							</li>
-							<li class="">
-								<a href="#city2" data-toggle="tab"><em class="value"></em><i></i></a>
-							</li>
-						</ul>
+		    				<li class="active">
+		    					<a class="j-value-prov" href="#prov" data-toggle="tab"><em class="value j-value"></em><i></i></a>
+		    				</li>
+		    				<li class="">
+		    					<a class="j-value-city" href="#city" data-toggle="tab"><em class="value j-value"></em><i></i></a>
+		    				</li>
+		    			</ul>
 					</div>
 					<div class="linkage-content tab-content">
-						<div class="tab-pane active" id="prov2"></div>
-						<div class="tab-pane" id="city2"></div>
-					</div>
-				</div>
-			</div>			
-		</div>
-		<div class="col-md-3 example" id="example3">
-			<h2>选择省市县</h2>
-			<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
-			<div class="linkage-wrap">
-				<div class="linkage j-linkage">
-					<div class="linkage-tab">
-						<ul class="nav nav-tabs">
-							<li class="active">
-								<a href="#prov3" data-toggle="tab"><em class="value"></em><i></i></a>
-							</li>
-							<li class="">
-								<a href="#city3" data-toggle="tab"><em class="value"></em><i></i></a>
-							</li>
-							<li class="">
-								<a href="#dist3" data-toggle="tab"><em class="value"></em><i></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="linkage-content tab-content">
-						<div class="tab-pane active" id="prov3"></div>
-						<div class="tab-pane" id="city3"></div>
-						<div class="tab-pane" id="dist3"></div>
+						<div class="tab-pane active j-prov" id="prov"></div>
+		    			<div class="tab-pane j-city" id="city"></div>
 					</div>
 				</div>
 			</div>			
@@ -82,9 +38,9 @@
 <script src="../lib/js/jquery-1.11.3.js"></script>
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="../lib/js/city.min.js"></script>
-<script src="../lib/js/linkage.js"></script>
+<script src="../lib/js/fl.linkage.js"></script>
 <script>
-	$(".example").linkage({
+	$("#example").linkage({
 		url: citylist
 	})
 </script>
