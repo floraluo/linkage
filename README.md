@@ -232,6 +232,7 @@ $("#example").linkage({
 		</div>
 	</div>			
 </div>
+```
 
 ####联动查询省市县
 ```
