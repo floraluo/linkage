@@ -44,7 +44,7 @@ Default: `null`
 Type: `Function`
 
 Default:
-```
+```javascript
 formatProvResult: function (result) {
  return {
   value: result.n,
@@ -57,7 +57,7 @@ formatProvResult: function (result) {
 `value`是某个省，`template`是省级列表的模板，可自定义，`tab`是省列表面板的标签，也可自定义。若你的数据中key和我的默认的不一样，则这些都可自定义成你自己的数据格式，确保值正确就可以了。
 
 Example:
-```
+```javascript
 formatProvResult: function (result) {
  return {
   value: result.n,
@@ -70,7 +70,7 @@ formatProvResult: function (result) {
 Type: `Function`
 
 Default:
-```
+```javascript
 formatCityResult: function(result) {
  return {
 	 value: result.n,
@@ -86,7 +86,7 @@ formatCityResult: function(result) {
 Type: `Function`
 
 Default:
-```
+```javascript
 formatDistResult: function(result) {
  return {
 	 value: result.s,
@@ -102,7 +102,7 @@ formatDistResult: function(result) {
 Type: `Function`
 
 Default:
-```
+```javascript
 getCitys: function(results) {
 	return results.c
 }
@@ -112,7 +112,7 @@ getCitys: function(results) {
 Type: `Function`
 
 Default:
-```
+```javascript
 getDists: function(results) {
 	return results.a
 }
@@ -120,7 +120,7 @@ getDists: function(results) {
 获取指定市的所有省，当数据源格式不同时重新自定义指定，返回结果是一个json数组
 
 ##html模板
-```
+```html
 <div class="col-md-3 example" id="example2">
 	<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
 	<div class="linkage-wrap">
@@ -155,7 +155,7 @@ getDists: function(results) {
 这个html模板中的tabs部分可以自定义，正如我的`index.html`中一样
 
 Example:
-```
+```html
 <a href="#prov2" data-toggle="tab"><span class="value"></span></a>
 ```
 注意：`class="value"`所在标签下不能包含子标签，这个标签是存放数据所用。
@@ -165,7 +165,7 @@ Example:
 
 ####多个同时调用
 有几个input框为同样的数据源可以使用class调用
-```
+```javascript
 $(".example").linkage({
 	url: citylist
 })
@@ -173,7 +173,7 @@ $(".example").linkage({
 
 
 ####设置默认值
-```
+```javascript
 $("#example").linkage({
  url: citylist,
  prov: "四川",
@@ -183,7 +183,7 @@ $("#example").linkage({
 
 
 ####取消tab
-```
+```javascript
 $("#example").linkage({
  url: citylist,
  tab: false
@@ -196,7 +196,7 @@ $("#example").linkage({
 ###选择查询省、省市、省市县
 
 ####只查询省
-```
+```html
 <div class="col-md-3 example" id="example2">
 	<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
 	<div class="linkage-wrap">
@@ -217,7 +217,7 @@ $("#example").linkage({
 ```
 
 ####联动查询省市
-```
+```html
 <div class="col-md-3 example" id="example2">
 	<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
 	<div class="linkage-wrap">
@@ -242,7 +242,7 @@ $("#example").linkage({
 ```
 
 ####联动查询省市县
-```
+```html
 <div class="col-md-3 example" id="example2">
 	<input type="text" class="form-control linkage-input" id="input" placeholder="请选择一个城市" readonly="readonly">
 	<div class="linkage-wrap">
